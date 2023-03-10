@@ -1,5 +1,11 @@
-[gd_scene format=3 uid="uid://bwmyubrd0xqpj"]
+[gd_scene load_steps=2 format=3 uid="uid://bwmyubrd0xqpj"]
+
+[ext_resource type="Texture2D" uid="uid://di6q40ro442ef" path="res://Assets/Art/Logo.png" id="1_ag1ft"]
 
 [node name="Title" type="Node2D"]
+position = Vector2(979, 461)
 
 [node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(94, 60)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_ag1ft")

@@ -1,10 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm64i3gfiv718"]
+[gd_scene load_steps=9 format=3 uid="uid://bm64i3gfiv718"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_624he"]
-[ext_resource type="Texture2D" uid="uid://ywprxtyrqglf" path="res://Assets/Art/icon.svg" id="2_u5y0g"]
+[ext_resource type="Texture2D" uid="uid://dyypljqgbjdph" path="res://Assets/Art/Player.png" id="2_c0vg7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x77qa"]
-radius = 156.375
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2qycn"]
+radius = 57.1428
+height = 392.857
+
+[sub_resource type="Animation" id="Animation_3m30r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ywhy8"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_x0be8"]
+resource_name = "left"
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_sfjaq"]
+resource_name = "right"
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hnp51"]
+_data = {
+"RESET": SubResource("Animation_3m30r"),
+"idle": SubResource("Animation_ywhy8"),
+"left": SubResource("Animation_x0be8"),
+"right": SubResource("Animation_sfjaq")
+}
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(583, 431)
@@ -14,8 +89,14 @@ floor_max_angle = 1.0472
 script = ExtResource("1_624he")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_u5y0g")
+texture = ExtResource("2_c0vg7")
+hframes = 4
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 scale = Vector2(0.4, 0.4)
-shape = SubResource("CircleShape2D_x77qa")
+shape = SubResource("CapsuleShape2D_2qycn")
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hnp51")
+}
