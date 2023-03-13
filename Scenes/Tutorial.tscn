@@ -1,27 +1,142 @@
-[gd_scene load_steps=3 format=3 uid="uid://b50ccd67ypxwi"]
+[gd_scene load_steps=8 format=3 uid="uid://chky4tspr45dc"]
 
 [ext_resource type="PackedScene" uid="uid://bm64i3gfiv718" path="res://Scenes/Player.tscn" id="1_2p4ax"]
+[ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="1_poy2b"]
 [ext_resource type="Script" path="res://Scripts/MainCamera.gd" id="2_ha57n"]
+[ext_resource type="FontFile" uid="uid://lvbh656qh6md" path="res://Assets/Art/Roboto/Roboto-Thin.ttf" id="4_vpklf"]
+[ext_resource type="Texture2D" uid="uid://c76mj6v8u65hy" path="res://Assets/Art/Door.png" id="5_ut78d"]
+
+[sub_resource type="Curve2D" id="Curve2D_0vgg5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1190, -3, 0, 0, 0, 0, -7, 2, 0, 0, 0, 0, 2, 772, -315.76, 1.04904, 315.76, -1.04904, 283, 1084, 0, 0, 0, 0, 1921, 1084, 0, 0, 0, 0, 1924, 981, 0, 0, 0, 0, 2077, 984, 0, 0, 0, 0, 2079, 1086, -158.992, 7.26361, 158.992, -7.26361, 2414, 1083, 0, 0, 0, 0, 2785, 895, -108.147, -4.8424, 108.147, 4.8424, 2970, 1119, 0, 0, 0, 0, 3770, 1116, 0, 0, 0, 0, 3766, 662, 0, 0, 0, 0, 4219, 658, 0, 0, 0, 0, 4219, 1125, 0, 0, 0, 0, 4983, 1128, 0, 0, 0, 0, 4982, 646, -93.6198, 0, 93.6198, 0, 5487, 652, -351.074, 16.9484, 351.074, -16.9484, 6080, 1138, 0, 0, 0, 0, 6574, 709, 0, 0, 0, 0, 6569, 1666, 0, 0, 0, 0, 7996, 1663, 0, 0, 0, 0, 7995, 861, 0, 0, 0, 0, 10430, 868, 0, 0, 0, 0, 10432, 426, 0, 0, 0, 0, 10946, 426, 0, 0, 0, 0, 10944, -263, 0, 0, 0, 0, 4748, -262, 0, 0, 0, 0, 4752, 948, 0, 0, 0, 0, 4544, 949, 0, 0, 0, 0, 4540, -266, 0, 0, 0, 0, -1188, -274, 0, 0, 0, 0, -1197, -1144, 0, 0, 0, 0, 12055, -1142, 0, 0, 0, 0, 12047, 1818, 0, 0, 0, 0, -1190, 1799, 0, 0, 0, 0, -1191, -4)
+}
+point_count = 37
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kboo"]
+size = Vector2(114, 173)
 
 [node name="Tutorial" type="Node2D"]
+script = ExtResource("1_poy2b")
+metadata/_edit_vertical_guides_ = [4607.0]
 
 [node name="Player" parent="." instance=ExtResource("1_2p4ax")]
 position = Vector2(977, 889)
 floor_max_angle = 1.309
 
-[node name="MainCamera2" type="Camera2D" parent="."]
-position = Vector2(961, 543)
+[node name="MainCamera" type="Camera2D" parent="."]
+position = Vector2(959, 600)
 script = ExtResource("2_ha57n")
 
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(-969, -262)
+[node name="Terrain" type="StaticBody2D" parent="."]
 
-[node name="Texture" type="Polygon2D" parent="Ground"]
-position = Vector2(1, 0)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-6, -1, -7, 1668, 7598, 1661, 7597, -683, 6677, -683, 6682, 573, 6130, 573, 6128, 1216, 4939, 1216, 4903, 1207, 4872, 1188, 4855, 1168, 4828, 1135, 4756, 1018, 4662, 893, 4576, 801, 4447, 712, 4372, 677, 4298, 663, 4223, 650, 4157, 626, 4115, 662, 4004, 747, 3814, 894, 3754, 933, 3563, 1043, 3437, 1107, 3388, 1132, 3336, 1157, 3290, 1172, 3191, 1197, 3092, 1212, 2968, 1220, 2802, 1225, 2641, 1223, 1448, 1211, 1402.36, 1210, 1357, 1209, 1338, 1207, 1320, 1204, 1291, 1197, 1237, 1180, 1182, 1161, 1147, 1147, 1111, 1130, 1082, 1112, 1054, 1092, 1022, 1063, 1002, 1036, 987, 1015, 975, 997, 964, 974, 962, 968, 965, -10)
+[node name="Path" type="Path2D" parent="Terrain"]
+curve = SubResource("Curve2D_0vgg5")
 
-[node name="Collision" type="CollisionPolygon2D" parent="Ground"]
-position = Vector2(1, 0)
-rotation = -1.09394e-05
-polygon = PackedVector2Array(-6, -1, -7, 1668, 7598, 1661, 7597, -683, 6677, -683, 6682, 573, 6130, 573, 6128, 1216, 4939, 1216, 4903, 1207, 4872, 1188, 4855, 1168, 4828, 1135, 4756, 1018, 4662, 893, 4576, 801, 4447, 712, 4372, 677, 4297, 663, 4223.99, 651.046, 4157.99, 626.045, 4115, 662, 4004, 747, 3814, 894, 3754, 933, 3563, 1043, 3437, 1107, 3388, 1132, 3336, 1157, 3290, 1172, 3191, 1197, 3092, 1212, 2968, 1220, 2802, 1225, 2641, 1223, 1448, 1211, 1402.36, 1210, 1357, 1209, 1338, 1207, 1320, 1204, 1291, 1197, 1237, 1180, 1182, 1161, 1147, 1147, 1111, 1130, 1082, 1112, 1054, 1092, 1022, 1063, 1002, 1036, 987, 1015, 975, 997, 964, 974, 962, 968, 965, -10)
+[node name="TerrainCollision" type="CollisionPolygon2D" parent="Terrain"]
+
+[node name="Texture" type="Line2D" parent="Terrain"]
+points = PackedVector2Array(274, 85)
+width = 15.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Tips" type="Node" parent="."]
+
+[node name="Tip1" type="Label" parent="Tips"]
+offset_left = -888.0
+offset_top = -182.0
+offset_right = -320.0
+offset_bottom = -117.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vpklf")
+theme_override_font_sizes/font_size = 52
+text = "Nothing To See Up Here..."
+
+[node name="Tip2" type="Label" parent="Tips"]
+offset_left = 682.0
+offset_top = 620.0
+offset_right = 1276.0
+offset_bottom = 750.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vpklf")
+theme_override_font_sizes/font_size = 52
+text = "Welcome to Slide! Move with WASD or Arrow Keys"
+autowrap_mode = 3
+
+[node name="Tip3" type="Label" parent="Tips"]
+offset_left = 1792.0
+offset_top = 702.0
+offset_right = 2191.0
+offset_bottom = 832.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vpklf")
+theme_override_font_sizes/font_size = 52
+text = "Can't Get Up? Try a Running Start"
+autowrap_mode = 3
+
+[node name="Tip4" type="Label" parent="Tips"]
+offset_left = 3093.0
+offset_top = 594.0
+offset_right = 3492.0
+offset_bottom = 724.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vpklf")
+theme_override_font_sizes/font_size = 52
+text = "Try a Big Jump!"
+autowrap_mode = 3
+
+[node name="Tip5" type="Label" parent="Tips"]
+offset_left = 4482.0
+offset_top = 957.0
+offset_right = 4852.0
+offset_bottom = 1152.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vpklf")
+theme_override_font_sizes/font_size = 42
+text = "If You're Moving Fast Enough, You Can Jump Up Walls!"
+autowrap_mode = 3
+
+[node name="Tip6" type="Label" parent="Tips"]
+offset_left = 5932.0
+offset_top = 355.0
+offset_right = 6302.0
+offset_bottom = 550.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vpklf")
+theme_override_font_sizes/font_size = 52
+text = "Leap of Faith!"
+autowrap_mode = 3
+
+[node name="Tip7" type="Label" parent="Tips"]
+offset_left = 8356.0
+offset_top = 518.0
+offset_right = 8726.0
+offset_bottom = 713.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vpklf")
+theme_override_font_sizes/font_size = 52
+text = "Good Job! You Made It!"
+autowrap_mode = 3
+
+[node name="Tip8" type="Label" parent="Tips"]
+offset_left = 9881.0
+offset_top = 381.0
+offset_right = 10251.0
+offset_bottom = 576.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_vpklf")
+theme_override_font_sizes/font_size = 52
+text = "Did Somebody Say Super Wall Jumps? "
+autowrap_mode = 3
+
+[node name="Door" type="Area2D" parent="."]
+position = Vector2(10697, 305)
+
+[node name="DoorSprite" type="Sprite2D" parent="Door"]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("5_ut78d")
+
+[node name="DoorArea" type="CollisionShape2D" parent="Door"]
+position = Vector2(2, 41.5)
+shape = SubResource("RectangleShape2D_4kboo")
+
+[connection signal="area_entered" from="Door" to="Player" method="_on_door_area_entered"]

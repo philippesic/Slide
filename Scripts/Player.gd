@@ -11,6 +11,9 @@ var slope_angle
 
 func _physics_process(delta):
 	
+	if Input.is_action_just_pressed("reset"):
+		get_tree().change_scene_to_file("./Scenes/Tutorial.tscn")
+	
 	var dot = get_floor_normal().dot(Vector2.UP)
 	var JUMP_VELOCITY = -(abs(velocity.x) / 3) - 500
 	
@@ -50,13 +53,11 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
 			
-		if Input.is_action_pressed("slide") and slope_angle >= 0.3:
-			# $PlayerAnimation.play("slide")
-			velocity.x *= (1 + (slope_angle / 2))
+		else:
+			set_floor_snap_length(100.0)
 	
 		ACCELERATION = STD_ACCELERATION
 		SPEED = STD_SPEED
-		set_floor_snap_length(10.0)
 		
 		if abs(velocity.x) > FRICTION * delta:
 			velocity.x -= FRICTION * delta * velocity.x / abs(velocity.x)
@@ -67,14 +68,21 @@ func _physics_process(delta):
 
 	if not is_on_floor():
 		
+		velocity.y += gravity * delta * 0.5
+		
 		if Input.is_action_just_pressed("jump") and is_on_wall():
 			
 			direction = -direction
-			velocity.y -= 400
-			
+			velocity.y -= 600
+		
 			if direction > 0:
 				velocity.x += 600
 			if direction < 0:
 				velocity.x -= 600
 			
 	move_and_slide()
+
+
+func _on_door_area_entered(area):
+	if Input.is_action_just_pressed("enter"):
+		get_tree().change_scene_to_file("res://Scenes/Title.tscn")
