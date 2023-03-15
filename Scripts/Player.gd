@@ -2,17 +2,23 @@ extends CharacterBody2D
 
 const STD_SPEED = 1400.0
 const STD_ACCELERATION = 2000.0
-const FRICTION = 60.0
+const STD_FRICTION = 60.0
 
 var SPEED = STD_SPEED
 var ACCELERATION = STD_ACCELERATION
+var FRICTION = STD_FRICTION
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var slope_angle
 
+@onready var scene = get_tree().current_scene.name
+var currentScene = "res://Scenes/" + str(scene) + ".tscn"
+
+@onready var canProceed = false
+
 func _physics_process(delta):
-	
+
 	if Input.is_action_just_pressed("reset"):
-		get_tree().change_scene_to_file("./Scenes/Tutorial.tscn")
+		get_tree().change_scene_to_file(currentScene)
 	
 	var dot = get_floor_normal().dot(Vector2.UP)
 	var JUMP_VELOCITY = -(abs(velocity.x) / 3) - 500
@@ -58,6 +64,7 @@ func _physics_process(delta):
 	
 		ACCELERATION = STD_ACCELERATION
 		SPEED = STD_SPEED
+		FRICTION = STD_FRICTION
 		
 		if abs(velocity.x) > FRICTION * delta:
 			velocity.x -= FRICTION * delta * velocity.x / abs(velocity.x)
@@ -68,21 +75,37 @@ func _physics_process(delta):
 
 	if not is_on_floor():
 		
+		ACCELERATION = STD_ACCELERATION * 1.5
+		FRICTION = STD_FRICTION * 1.5
+		
 		velocity.y += gravity * delta * 0.5
 		
-		if Input.is_action_just_pressed("jump") and is_on_wall():
+		if is_on_wall():
 			
-			direction = -direction
-			velocity.y -= 600
-		
-			if direction > 0:
-				velocity.x += 600
-			if direction < 0:
-				velocity.x -= 600
+			if velocity.y > 0:
+				velocity.y -= gravity * delta * 1.4
+			
+			if Input.is_action_just_pressed("jump"):
+				direction = -direction
+				
+				if velocity.y < -200:
+					velocity.y  = -abs(velocity.y) * 1.3 - 400
+				
+				else:
+					velocity.y -= 1200
+			
+				if direction > 0:
+					velocity.x += 800
+				if direction < 0:
+					velocity.x -= 800
 			
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("enter") and canProceed:
+		get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
 
+#func _on_door_area_entered(area):
+	canProceed = true
 
-func _on_door_area_entered(area):
-	if Input.is_action_just_pressed("enter"):
-		get_tree().change_scene_to_file("res://Scenes/Title.tscn")
+#func _on_door_area_exited(area):
+	canProceed = false

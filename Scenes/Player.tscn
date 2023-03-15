@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm64i3gfiv718"]
+[gd_scene load_steps=10 format=3 uid="uid://bm64i3gfiv718"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_624he"]
 [ext_resource type="Texture2D" uid="uid://dyypljqgbjdph" path="res://Assets/Art/Player.png" id="2_c0vg7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2qycn"]
-radius = 57.1428
-height = 392.857
+radius = 53.5715
+height = 450.0
 
 [sub_resource type="Animation" id="Animation_3m30r"]
 length = 0.001
@@ -81,6 +81,10 @@ _data = {
 "right": SubResource("Animation_sfjaq")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y5x3t"]
+radius = 40.0
+height = 194.286
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(583, 431)
 scale = Vector2(0.7, 0.7)
@@ -93,6 +97,7 @@ texture = ExtResource("2_c0vg7")
 hframes = 4
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4.28571)
 scale = Vector2(0.4, 0.4)
 shape = SubResource("CapsuleShape2D_2qycn")
 
@@ -100,3 +105,9 @@ shape = SubResource("CapsuleShape2D_2qycn")
 libraries = {
 "": SubResource("AnimationLibrary_hnp51")
 }
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="DetectionArea" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(0, -7.14282)
+shape = SubResource("CapsuleShape2D_y5x3t")

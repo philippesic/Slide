@@ -2,5 +2,8 @@ extends Node2D
 
 
 func _ready():
-	$Terrain/TerrainCollision.polygon = $Terrain/Path.curve.tessellate()
-	$Terrain/Texture.points = $Terrain/Path.curve.tessellate()
+	$Tips/Tip9.visible = false
+	
+
+func _on_door_area_entered(area):
+	$Tips/Tip9.visible = true
