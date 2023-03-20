@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://chky4tspr45dc"]
+[gd_scene load_steps=9 format=3 uid="uid://d2lqgtqxncwsu"]
 
 [ext_resource type="PackedScene" uid="uid://bm64i3gfiv718" path="res://Scenes/Player.tscn" id="1_2p4ax"]
 [ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="1_poy2b"]
-[ext_resource type="Script" path="res://Scripts/MainCamera.gd" id="2_ha57n"]
+[ext_resource type="Script" path="res://Scripts/CAM_X.gd" id="3_0qe4p"]
 [ext_resource type="FontFile" uid="uid://lvbh656qh6md" path="res://Assets/Art/Roboto/Roboto-Thin.ttf" id="4_vpklf"]
 [ext_resource type="Texture2D" uid="uid://c76mj6v8u65hy" path="res://Assets/Art/Door.png" id="5_ut78d"]
 [ext_resource type="Script" path="res://Scripts/Terrain.gd" id="6_0cyyq"]
@@ -26,7 +26,7 @@ floor_max_angle = 1.309
 
 [node name="XCam" type="Camera2D" parent="."]
 position = Vector2(959, 600)
-script = ExtResource("2_ha57n")
+script = ExtResource("3_0qe4p")
 
 [node name="Terrain" type="StaticBody2D" parent="."]
 position = Vector2(0, -185)

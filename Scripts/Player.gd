@@ -9,6 +9,7 @@ var ACCELERATION = STD_ACCELERATION
 var FRICTION = STD_FRICTION
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var slope_angle
+var pDelta
 
 @onready var scene = get_tree().current_scene.name
 var currentScene = "res://Scenes/" + str(scene) + ".tscn"
@@ -16,6 +17,8 @@ var currentScene = "res://Scenes/" + str(scene) + ".tscn"
 @onready var canProceed = false
 
 func _physics_process(delta):
+	
+	pDelta = delta
 
 	if Input.is_action_just_pressed("reset"):
 		get_tree().change_scene_to_file(currentScene)
@@ -88,11 +91,11 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("jump"):
 				direction = -direction
 				
-				if velocity.y < -200:
-					velocity.y  = -abs(velocity.y) * 1.3 - 400
+				if velocity.y < -1200:
+					velocity.y  = -abs(velocity.y) * 1.4 - 400
 				
 				else:
-					velocity.y -= 1200
+					velocity.y -= 800 - gravity * delta
 			
 				if direction > 0:
 					velocity.x += 800
@@ -105,7 +108,11 @@ func _physics_process(delta):
 		get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
 
 #func _on_door_area_entered(area):
-	canProceed = true
+	#canProceed = true
 
 #func _on_door_area_exited(area):
-	canProceed = false
+	#canProceed = false
+
+
+func _on_spring_area_entered(area):
+	velocity.y -= (2000 + (gravity  * pDelta * 1.4))

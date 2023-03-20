@@ -1,15 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkmhmqypj2ccv"]
+[gd_scene load_steps=9 format=3 uid="uid://bcb8bib5js70y"]
 
 [ext_resource type="PackedScene" uid="uid://bm64i3gfiv718" path="res://Scenes/Player.tscn" id="1_tpm6t"]
-[ext_resource type="Script" path="res://Scripts/Camera1.gd" id="2_q27pj"]
+[ext_resource type="Script" path="res://Scripts/CAM_XY.gd" id="2_y8v6g"]
 [ext_resource type="FontFile" uid="uid://lvbh656qh6md" path="res://Assets/Art/Roboto/Roboto-Thin.ttf" id="4_0qynv"]
 [ext_resource type="Script" path="res://Scripts/Terrain.gd" id="4_gocde"]
+[ext_resource type="Texture2D" uid="uid://ywprxtyrqglf" path="res://Assets/Art/icon.svg" id="5_aaj4t"]
+[ext_resource type="Script" path="res://Scripts/Spring.gd" id="5_ywggr"]
 
 [sub_resource type="Curve2D" id="Curve2D_u6ojw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 11842, -2856.82, 0, 0, 0, 0, 1032, -2839.3, 0, 0, 0, 0, 1050, -357.959, 0, 0, 0, 0, 1692, -357.197, 0, 0, 0, 0, 1699, 183.549, 0, 0, 0, 0, 3502, 190.403, 0, 0, 0, 0, 3506, 823.305, 0, 0, 0, 0, -4, 815.689, 0, 0, 0, 0, -1, 1096, 0, 0, 0, 0, 3795, 1097, 0, 0, 0, 0, 3780, -584.92, 0, 0, 0, 0, 2475, -592.536, 0, 0, 0, 0, 2470, -1238.39, 0, 0, 0, 0, 3783, -1238.39, 0, 0, 0, 0, 3758, -2038, -2043.43, -238.4, 2043.43, 238.4, 6207, 904, 0, 0, 0, 0, 9103, 101, 0, 0, 0, 0, 9096, 5134, 0, 0, 0, 0, 11365, 5130, 0, 0, 0, 0, 11395, -1080, 0, 0, 0, 0, 11844, -1088, 0, 0, 0, 0, 11855, 6485.91, 0, 0, 0, 0, -1178, 6470.68, 0, 0, 0, 0, -1150, -3393.75, 0, 0, 0, 0, 11837, -3424.98, 0, 0, 0, 0, 11845, -1087.59)
+"points": PackedVector2Array(0, 0, 0, 0, 11842, -2856.82, 0, 0, 0, 0, 1032, -2839.3, 0, 0, 0, 0, 1050, -357.959, 0, 0, 0, 0, 1692, -357.197, 0, 0, 0, 0, 1699, 183.549, 0, 0, 0, 0, 3502, 190.403, 0, 0, 0, 0, 3506, 823.305, 0, 0, 0, 0, -4, 815.689, 0, 0, 0, 0, -1, 1096, 0, 0, 0, 0, 3795, 1097, 0, 0, 0, 0, 3780, -584.92, 0, 0, 0, 0, 2475, -592.536, 0, 0, 0, 0, 2470, -1238.39, 0, 0, 0, 0, 3783, -1238.39, 0, 0, 0, 0, 3756, -1942.88, -2043.43, -238.4, 2043.43, 238.4, 6207, 904, 0, 0, 0, 0, 9103, 101, 0, 0, 0, 0, 9096, 5134, 0, 0, 0, 0, 11365, 5130, 0, 0, 0, 0, 11388, 232.292, 0, 0, 0, 0, 10925, 226.961, 0, 0, 0, 0, 10926, 60.1675, 0, 0, 0, 0, 11394, 61.6904, 0, 0, 0, 0, 11395, -1080, 0, 0, 0, 0, 11844, -1088, 0, 0, 0, 0, 11855, 6485.91, 0, 0, 0, 0, -1178, 6470.68, 0, 0, 0, 0, -1150, -3393.75, 0, 0, 0, 0, 11837, -3424.98, 0, 0, 0, 0, 11845, -1087.59)
 }
-point_count = 26
+point_count = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6p58"]
+size = Vector2(128, 22)
 
 [node name="Level1" type="Node2D"]
 
@@ -18,7 +23,8 @@ position = Vector2(4049, 8107)
 
 [node name="XYCam" type="Camera2D" parent="."]
 position = Vector2(4352, 7533)
-script = ExtResource("2_q27pj")
+zoom = Vector2(0.7, 0.7)
+script = ExtResource("2_y8v6g")
 
 [node name="Terrain" type="StaticBody2D" parent="."]
 position = Vector2(3011, 6381)
@@ -58,3 +64,33 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_0qynv")
 theme_override_font_sizes/font_size = 52
 text = "Try to Keep Moving!"
+
+[node name="Spring1" type="Area2D" parent="."]
+position = Vector2(-85, -260)
+script = ExtResource("5_ywggr")
+
+[node name="SpringTexture" type="Sprite2D" parent="Spring1"]
+position = Vector2(4542, 6265.5)
+scale = Vector2(1, 0.164062)
+texture = ExtResource("5_aaj4t")
+
+[node name="SpringArea" type="CollisionShape2D" parent="Spring1"]
+position = Vector2(4541, 6266)
+shape = SubResource("RectangleShape2D_k6p58")
+
+[node name="Spring2" type="Area2D" parent="."]
+position = Vector2(9530, 114)
+script = ExtResource("5_ywggr")
+
+[node name="SpringTexture" type="Sprite2D" parent="Spring2"]
+position = Vector2(4542, 6265.5)
+scale = Vector2(1, 0.164062)
+texture = ExtResource("5_aaj4t")
+
+[node name="SpringArea" type="CollisionShape2D" parent="Spring2"]
+position = Vector2(4541, 6266)
+shape = SubResource("RectangleShape2D_k6p58")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="area_entered" from="Spring1" to="Player" method="_on_spring_area_entered"]
+[connection signal="area_entered" from="Spring2" to="Player" method="_on_spring_area_entered"]
