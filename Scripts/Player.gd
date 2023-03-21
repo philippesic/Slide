@@ -9,7 +9,8 @@ var ACCELERATION = STD_ACCELERATION
 var FRICTION = STD_FRICTION
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var slope_angle
-var pDelta
+var springX
+var springY
 
 @onready var scene = get_tree().current_scene.name
 var currentScene = "res://Scenes/" + str(scene) + ".tscn"
@@ -17,8 +18,7 @@ var currentScene = "res://Scenes/" + str(scene) + ".tscn"
 @onready var canProceed = false
 
 func _physics_process(delta):
-	
-	pDelta = delta
+		
 
 	if Input.is_action_just_pressed("reset"):
 		get_tree().change_scene_to_file(currentScene)
@@ -113,6 +113,3 @@ func _physics_process(delta):
 #func _on_door_area_exited(area):
 	#canProceed = false
 
-
-func _on_spring_area_entered(area):
-	velocity.y -= (2000 + (gravity  * pDelta * 1.4))
