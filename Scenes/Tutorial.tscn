@@ -1,20 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2lqgtqxncwsu"]
+[gd_scene load_steps=10 format=3 uid="uid://d2lqgtqxncwsu"]
 
 [ext_resource type="PackedScene" uid="uid://bm64i3gfiv718" path="res://Scenes/Player.tscn" id="1_2p4ax"]
 [ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="1_poy2b"]
 [ext_resource type="Script" path="res://Scripts/CAM_X.gd" id="3_0qe4p"]
 [ext_resource type="FontFile" uid="uid://lvbh656qh6md" path="res://Assets/Art/Roboto/Roboto-Thin.ttf" id="4_vpklf"]
-[ext_resource type="Texture2D" uid="uid://c76mj6v8u65hy" path="res://Assets/Art/Door.png" id="5_ut78d"]
 [ext_resource type="Script" path="res://Scripts/Terrain.gd" id="6_0cyyq"]
+[ext_resource type="Texture2D" uid="uid://pl7s06urgfxa" path="res://Assets/Art/arrow-right-solid.svg" id="7_lm0em"]
+[ext_resource type="PackedScene" uid="uid://buve403tb3nv3" path="res://Scenes/door.tscn" id="8_dx64u"]
+[ext_resource type="Texture2D" uid="uid://cett0mgg1tub0" path="res://Assets/Art/arrow-up-solid.svg" id="8_lob40"]
 
 [sub_resource type="Curve2D" id="Curve2D_rce1x"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 427, 0, 0, 0, 0, 2, 1145, 0, 0, 0, 0, 2250, 1142, 0, 0, 0, 0, 2249, 1052, -57.4046, -6.81071, 57.4046, 6.81071, 2385, 1057, -349.561, -24.5168, 349.561, 24.5168, 2686, 1156, 0, 0, 0, 0, 3361, 1048, 0, 0, 0, 0, 3356, 1245, 0, 0, 0, 0, 3929, 1243, 0, 0, 0, 0, 3927, 779, 0, 0, 0, 0, 4248, 777, 0, 0, 0, 0, 4250, 1252, 0, 0, 0, 0, 4945, 1252, 0, 0, 0, 0, 4944, 787, -87.0385, 1.70664, 87.0385, -1.70664, 5335, 781, -386.053, -6.01642, 386.053, 6.01642, 5848, 1163, -13.6531, -29.5817, 13.6531, 29.5817, 6489, 888, 0, 0, 0, 0, 6497, 1923, 0, 0, 0, 0, 8099, 1917, 0, 0, 0, 0, 8090, 992, 0, 0, 0, 0, 10357, 976, 0, 0, 0, 0, 10357, 456, 0, 0, 0, 0, 10868, 456, 0, 0, 0, 0, 10868, -5, 0, 0, 0, 0, 4697, -5, 0, 0, 0, 0, 4703, 1047, 0, 0, 0, 0, 4471, 1049, 0, 0, 0, 0, 4467, -8, 0, 0, 0, 0, -6, -5, 0, 0, 0, 0, 0, 187, 0, 0, 0, 0, -921, 188, 0, 0, 0, 0, -921, -684, 0, 0, 0, 0, 12382, -685, 0, 0, 0, 0, 12381, 3126, 0, 0, 0, 0, -918, 3118, 0, 0, 0, 0, -917, 432, 0, 0, 0, 0, 0, 428)
 }
 point_count = 37
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kboo"]
-size = Vector2(114, 173)
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_poy2b")
@@ -41,20 +40,11 @@ default_color = Color(0, 0, 0, 1)
 
 [node name="Collision" type="CollisionPolygon2D" parent="Terrain"]
 
-[node name="Door" type="Area2D" parent="."]
-position = Vector2(10639, 151)
-
-[node name="DoorSprite" type="Sprite2D" parent="Door"]
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("5_ut78d")
-
-[node name="DoorArea" type="CollisionShape2D" parent="Door"]
-position = Vector2(2, 41.5)
-shape = SubResource("RectangleShape2D_4kboo")
-
 [node name="Tips" type="Node" parent="."]
 
-[node name="Tip1" type="Label" parent="Tips"]
+[node name="Text" type="Node" parent="Tips"]
+
+[node name="Tip1" type="Label" parent="Tips/Text"]
 offset_left = -735.0
 offset_top = 84.0
 offset_right = -167.0
@@ -64,7 +54,7 @@ theme_override_fonts/font = ExtResource("4_vpklf")
 theme_override_font_sizes/font_size = 52
 text = "Nothing To See Up Here..."
 
-[node name="Tip2" type="Label" parent="Tips"]
+[node name="Tip2" type="Label" parent="Tips/Text"]
 offset_left = 682.0
 offset_top = 620.0
 offset_right = 1276.0
@@ -75,7 +65,7 @@ theme_override_font_sizes/font_size = 52
 text = "Welcome to Slide! Move with WASD or Arrow Keys"
 autowrap_mode = 3
 
-[node name="Tip3" type="Label" parent="Tips"]
+[node name="Tip3" type="Label" parent="Tips/Text"]
 offset_left = 2109.0
 offset_top = 563.0
 offset_right = 2508.0
@@ -86,7 +76,7 @@ theme_override_font_sizes/font_size = 52
 text = "Can't Get Up? Try a Running Start"
 autowrap_mode = 3
 
-[node name="Tip4" type="Label" parent="Tips"]
+[node name="Tip4" type="Label" parent="Tips/Text"]
 offset_left = 3058.0
 offset_top = 538.0
 offset_right = 3457.0
@@ -97,7 +87,7 @@ theme_override_font_sizes/font_size = 52
 text = "Try a Big Jump!"
 autowrap_mode = 3
 
-[node name="Tip5" type="Label" parent="Tips"]
+[node name="Tip5" type="Label" parent="Tips/Text"]
 offset_left = 4428.0
 offset_top = 891.0
 offset_right = 4798.0
@@ -108,7 +98,7 @@ theme_override_font_sizes/font_size = 42
 text = "If You're Moving Fast Enough, You Can Jump Up Walls!"
 autowrap_mode = 3
 
-[node name="Tip6" type="Label" parent="Tips"]
+[node name="Tip6" type="Label" parent="Tips/Text"]
 offset_left = 5476.0
 offset_top = 322.0
 offset_right = 5846.0
@@ -119,7 +109,7 @@ theme_override_font_sizes/font_size = 52
 text = "Leap of Faith!"
 autowrap_mode = 3
 
-[node name="Tip7" type="Label" parent="Tips"]
+[node name="Tip7" type="Label" parent="Tips/Text"]
 offset_left = 8356.0
 offset_top = 518.0
 offset_right = 8726.0
@@ -130,7 +120,7 @@ theme_override_font_sizes/font_size = 52
 text = "Good Job! You Made It!"
 autowrap_mode = 3
 
-[node name="Tip8" type="Label" parent="Tips"]
+[node name="Tip8" type="Label" parent="Tips/Text"]
 offset_left = 9818.0
 offset_top = 409.0
 offset_right = 10188.0
@@ -141,17 +131,52 @@ theme_override_font_sizes/font_size = 52
 text = "Did Somebody Say Super Wall Jumps? "
 autowrap_mode = 3
 
-[node name="Tip9" type="Label" parent="Tips"]
-offset_left = 10465.0
-offset_top = -62.0
-offset_right = 10873.0
-offset_bottom = 133.0
+[node name="Tip9" type="Label" parent="Tips/Text"]
+offset_left = 10446.0
+offset_top = -112.0
+offset_right = 10854.0
+offset_bottom = 83.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_vpklf")
 theme_override_font_sizes/font_size = 52
 text = "Press Space/Enter to Continue"
 autowrap_mode = 3
 
-[connection signal="area_entered" from="Door" to="." method="_on_door_area_entered"]
-[connection signal="area_entered" from="Door" to="Player" method="_on_door_area_entered"]
-[connection signal="area_exited" from="Door" to="Player" method="_on_door_area_exited"]
+[node name="Icons" type="Node" parent="Tips"]
+
+[node name="Arrow1" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(1500, 668)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_lm0em")
+
+[node name="Arrow2" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(3457, 409)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_lm0em")
+
+[node name="Arrow3" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(4841, 750)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_lob40")
+
+[node name="Arrow4" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(6316, 460)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_lm0em")
+
+[node name="Arrow5" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(8986, 460)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_lm0em")
+
+[node name="Arrow6" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(10257, 460)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_lob40")
+
+[node name="Door" parent="." instance=ExtResource("8_dx64u")]
+position = Vector2(9621, -404)
+
+[connection signal="interacted" from="Player" to="Door" method="_on_player_interacted"]
+[connection signal="area_entered" from="Door" to="Door" method="_on_area_entered"]
+[connection signal="area_exited" from="Door" to="Door" method="_on_area_exited"]

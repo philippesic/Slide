@@ -1,25 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcb8bib5js70y"]
+[gd_scene load_steps=11 format=3 uid="uid://bk8upf746ryoc"]
 
 [ext_resource type="PackedScene" uid="uid://bm64i3gfiv718" path="res://Scenes/Player.tscn" id="1_tpm6t"]
+[ext_resource type="PackedScene" uid="uid://btdsqk7r6d7gb" path="res://Scenes/Spring.tscn" id="2_oma7u"]
 [ext_resource type="Script" path="res://Scripts/CAM_XY.gd" id="2_y8v6g"]
 [ext_resource type="FontFile" uid="uid://lvbh656qh6md" path="res://Assets/Art/Roboto/Roboto-Thin.ttf" id="4_0qynv"]
 [ext_resource type="Script" path="res://Scripts/Terrain.gd" id="4_gocde"]
-[ext_resource type="Texture2D" uid="uid://ywprxtyrqglf" path="res://Assets/Art/icon.svg" id="5_aaj4t"]
-[ext_resource type="Script" path="res://Scripts/Spring.gd" id="5_ywggr"]
+[ext_resource type="Texture2D" uid="uid://pl7s06urgfxa" path="res://Assets/Art/arrow-right-solid.svg" id="5_xfmvl"]
+[ext_resource type="Texture2D" uid="uid://cett0mgg1tub0" path="res://Assets/Art/arrow-up-solid.svg" id="6_qj0rt"]
+[ext_resource type="Texture2D" uid="uid://cuylpvbabjljw" path="res://Assets/Art/arrow-left-solid.svg" id="7_cr6f0"]
+[ext_resource type="PackedScene" uid="uid://buve403tb3nv3" path="res://Scenes/door.tscn" id="10_trvvs"]
 
 [sub_resource type="Curve2D" id="Curve2D_u6ojw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 11842, -2856.82, 0, 0, 0, 0, 1032, -2839.3, 0, 0, 0, 0, 1050, -357.959, 0, 0, 0, 0, 1692, -357.197, 0, 0, 0, 0, 1699, 183.549, 0, 0, 0, 0, 3502, 190.403, 0, 0, 0, 0, 3506, 823.305, 0, 0, 0, 0, -4, 815.689, 0, 0, 0, 0, -1, 1096, 0, 0, 0, 0, 3795, 1097, 0, 0, 0, 0, 3780, -584.92, 0, 0, 0, 0, 2475, -592.536, 0, 0, 0, 0, 2470, -1238.39, 0, 0, 0, 0, 3783, -1238.39, 0, 0, 0, 0, 3756, -1942.88, -2043.43, -238.4, 2043.43, 238.4, 6207, 904, 0, 0, 0, 0, 9755, 11.4243, 0, 0, 0, 0, 9627, 5130.24, 0, 0, 0, 0, 11365, 5130, 0, 0, 0, 0, 11388, 232.292, 0, 0, 0, 0, 10925, 226.961, 0, 0, 0, 0, 10926, 60.1675, 0, 0, 0, 0, 11394, 61.6904, 0, 0, 0, 0, 11395, -1080, 0, 0, 0, 0, 11844, -1088, 0, 0, 0, 0, 11855, 6485.91, 0, 0, 0, 0, -1178, 6470.68, 0, 0, 0, 0, -1150, -3393.75, 0, 0, 0, 0, 11837, -3424.98, 0, 0, 0, 0, 11845, -1087.59)
+"points": PackedVector2Array(0, 0, 0, 0, 11842, -2856.82, 0, 0, 0, 0, 1032, -2839.3, 0, 0, 0, 0, 1050, -357.959, 0, 0, 0, 0, 1692, -357.197, 0, 0, 0, 0, 1699, 183.549, 0, 0, 0, 0, 3502, 190.403, 0, 0, 0, 0, 3506, 823.305, 0, 0, 0, 0, -4, 815.689, 0, 0, 0, 0, -1, 1096, 0, 0, 0, 0, 3795, 1097, 0, 0, 0, 0, 3780, -584.92, 0, 0, 0, 0, 2475, -592.536, 0, 0, 0, 0, 2470, -1238.39, 0, 0, 0, 0, 3783, -1238.39, 0, 0, 0, 0, 3756, -1942.88, -2043.43, -238.4, 2043.43, 238.4, 6207, 904, 0, 0, 0, 0, 9755, 11.4243, 0, 0, 0, 0, 9627, 5130.24, 0, 0, 0, 0, 11365, 5130, 0, 0, 0, 0, 11388, 232.292, 0, 0, 0, 0, 10925, 226.961, 0, 0, 0, 0, 10926, 60.1675, 0, 0, 0, 0, 11394, 61.6904, 0, 0, 0, 0, 11396, -1086.82, 0, 0, 0, 0, 11844, -1088, 0, 0, 0, 0, 11855, 6485.91, 0, 0, 0, 0, -1178, 6470.68, 0, 0, 0, 0, -1150, -3393.75, 0, 0, 0, 0, 11837, -3424.98, 0, 0, 0, 0, 11845, -1087.59)
 }
 point_count = 30
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6p58"]
-size = Vector2(128, 22)
 
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_tpm6t")]
-position = Vector2(4049, 8107)
+position = Vector2(4154, 8107)
 
 [node name="XYCam" type="Camera2D" parent="."]
 position = Vector2(4352, 7533)
@@ -44,52 +44,94 @@ default_color = Color(0, 0, 0, 1)
 
 [node name="Tips" type="Node" parent="."]
 
-[node name="Tip1" type="Label" parent="Tips"]
-offset_left = 3109.0
-offset_top = 7970.0
-offset_right = 3768.0
-offset_bottom = 8035.0
+[node name="Text" type="Node" parent="Tips"]
+
+[node name="Tip1" type="Label" parent="Tips/Text"]
+offset_left = 3138.0
+offset_top = 7313.0
+offset_right = 3797.0
+offset_bottom = 7378.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_0qynv")
 theme_override_font_sizes/font_size = 52
 text = "Slide is a Game About Fluidity
 "
 
-[node name="Tip2" type="Label" parent="Tips"]
-offset_left = 4306.0
-offset_top = 7958.0
-offset_right = 4874.0
-offset_bottom = 8023.0
+[node name="Tip2" type="Label" parent="Tips/Text"]
+offset_left = 4393.0
+offset_top = 7313.0
+offset_right = 4961.0
+offset_bottom = 7378.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_0qynv")
 theme_override_font_sizes/font_size = 52
 text = "Try to Keep Moving!"
 
-[node name="Spring1" type="Area2D" parent="."]
-position = Vector2(-85, -260)
-script = ExtResource("5_ywggr")
+[node name="Icons" type="Node" parent="Tips"]
 
-[node name="SpringTexture" type="Sprite2D" parent="Spring1"]
-position = Vector2(4542, 6265.5)
-scale = Vector2(1, 0.164062)
-texture = ExtResource("5_aaj4t")
+[node name="Arrow1" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(4069, 7340)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_xfmvl")
 
-[node name="SpringArea" type="CollisionShape2D" parent="Spring1"]
-position = Vector2(4541, 6266)
-shape = SubResource("RectangleShape2D_k6p58")
+[node name="Arrow2" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(5685, 7327)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_xfmvl")
 
-[node name="Spring2" type="Area2D" parent="."]
-position = Vector2(9530, 171)
-script = ExtResource("5_ywggr")
+[node name="Arrow3" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(6642, 7001)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_qj0rt")
 
-[node name="SpringTexture" type="Sprite2D" parent="Spring2"]
-position = Vector2(4542, 6265.5)
-scale = Vector2(1, 0.164062)
-texture = ExtResource("5_aaj4t")
+[node name="Arrow4" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(6560, 6156)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_cr6f0")
 
-[node name="SpringArea" type="CollisionShape2D" parent="Spring2"]
-position = Vector2(4541, 6266)
-shape = SubResource("RectangleShape2D_k6p58")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
+[node name="Arrow5" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(4961, 6265)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_qj0rt")
 
-[connection signal="body_entered" from="Spring1" to="Player" method="_on_spring_1_body_entered"]
+[node name="Arrow6" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(4267, 5355)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_qj0rt")
+
+[node name="Arrow7" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(4333, 4205)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_xfmvl")
+
+[node name="Arrow8" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(9621, 6558)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_xfmvl")
+
+[node name="Arrow9" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(12241, 5881)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_xfmvl")
+
+[node name="Arrow10" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(14105, 5887)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_qj0rt")
+
+[node name="Spring" parent="." instance=ExtResource("2_oma7u")]
+position = Vector2(-339, -252)
+
+[node name="Spring2" parent="." instance=ExtResource("2_oma7u")]
+position = Vector2(9692, 147)
+
+[node name="Door" parent="." instance=ExtResource("10_trvvs")]
+position = Vector2(13625, 4613)
+
+[connection signal="interacted" from="Player" to="Door" method="_on_player_interacted"]
+[connection signal="body_entered" from="Spring" to="Player" method="_on_spring_body_entered"]
+[connection signal="body_entered" from="Spring" to="Spring" method="_on_body_entered"]
+[connection signal="body_entered" from="Spring2" to="Player" method="_on_spring_body_entered"]
+[connection signal="body_entered" from="Spring2" to="Spring2" method="_on_body_entered"]
+[connection signal="area_entered" from="Door" to="Door" method="_on_area_entered"]
+[connection signal="area_exited" from="Door" to="Door" method="_on_area_exited"]

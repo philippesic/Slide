@@ -12,10 +12,15 @@ var slope_angle
 var springX
 var springY
 
+signal interacted
+
 @onready var scene = get_tree().current_scene.name
 var currentScene = "res://Scenes/" + str(scene) + ".tscn"
 
 @onready var canProceed = false
+
+func _ready():
+	pass
 
 func _physics_process(delta):
 		
@@ -104,12 +109,5 @@ func _physics_process(delta):
 			
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("enter") and canProceed:
-		get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
-
-#func _on_door_area_entered(area):
-	#canProceed = true
-
-#func _on_door_area_exited(area):
-	#canProceed = false
-
+	if Input.is_action_just_pressed("enter"):
+		emit_signal("interacted")
