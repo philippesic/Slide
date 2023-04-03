@@ -1,20 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://btdsqk7r6d7gb"]
 
 [ext_resource type="Script" path="res://Scripts/Spring.gd" id="1_g6vq6"]
-[ext_resource type="Texture2D" uid="uid://ywprxtyrqglf" path="res://Assets/Art/icon.svg" id="2_h3gfr"]
+[ext_resource type="Texture2D" uid="uid://2lxugr5wg5xf" path="res://Assets/Art/Spring.png" id="2_mlip3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4uy4g"]
-size = Vector2(128, 22)
+size = Vector2(128, 55)
 
 [node name="Spring1" type="Area2D"]
 position = Vector2(-85, -260)
 script = ExtResource("1_g6vq6")
 
 [node name="SpringTexture" type="Sprite2D" parent="."]
-position = Vector2(4542, 6265.5)
-scale = Vector2(1, 0.164062)
-texture = ExtResource("2_h3gfr")
+position = Vector2(4534, 6253)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_mlip3")
 
 [node name="SpringArea" type="CollisionShape2D" parent="."]
-position = Vector2(4541, 6266)
+position = Vector2(4541, 6282.5)
 shape = SubResource("RectangleShape2D_4uy4g")

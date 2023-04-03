@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=3 uid="uid://g1ritd2oc1by"]
+
+[ext_resource type="PackedScene" uid="uid://bm64i3gfiv718" path="res://Scenes/Player.tscn" id="1_6yelw"]
+[ext_resource type="Script" path="res://Scripts/CAM_XY.gd" id="2_6jcia"]
+[ext_resource type="Script" path="res://Scripts/Terrain.gd" id="3_umrj4"]
+[ext_resource type="PackedScene" uid="uid://btdsqk7r6d7gb" path="res://Scenes/Spring.tscn" id="4_p4m8w"]
+[ext_resource type="PackedScene" uid="uid://buve403tb3nv3" path="res://Scenes/door.tscn" id="5_4gdej"]
+[ext_resource type="Texture2D" uid="uid://cett0mgg1tub0" path="res://Assets/Art/arrow-up-solid.svg" id="6_l7xbg"]
+[ext_resource type="Texture2D" uid="uid://cuylpvbabjljw" path="res://Assets/Art/arrow-left-solid.svg" id="7_2hrcx"]
+[ext_resource type="Texture2D" uid="uid://drbvc86cdvwo3" path="res://Assets/Art/arrow-down-solid.svg" id="8_wgfbm"]
+[ext_resource type="Texture2D" uid="uid://pl7s06urgfxa" path="res://Assets/Art/arrow-right-solid.svg" id="9_biubl"]
+[ext_resource type="FontFile" uid="uid://q7kjpchndcm6" path="res://Assets/Art/Roboto/Roboto-Light.ttf" id="10_7fqno"]
+
+[sub_resource type="Curve2D" id="Curve2D_cbi1f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4504, -6825, 0, 0, 0, 0, -4496, -3906, 0, 0, 0, 0, -3988, -3903, 0, 0, 0, 0, -3986, -4624, 0, 0, 0, 0, -3780, -4623, 0, 0, 0, 0, -3781, -3912, 0, 0, 0, 0, -2689, -3911, 0, 0, 0, 0, -2692, -4101, 0, 0, 0, 0, -2373, -4686, 0, 0, 0, 0, -1342, -4673, 0, 0, 0, 0, -1343, -5299, 0, 0, 0, 0, -3277, -5301, 0, 0, 0, 0, -3279, -5610, 0, 0, 0, 0, -975, -5613, 0, 0, 0, 0, -962, -3896, 0, 0, 0, 0, -371, -3893, 0, 0, 0, 0, -371, -6379, 0, 0, 0, 0, -3720, -6385, 0, 0, 0, 0, -3710, -4971, 0, 0, 0, 0, -1792, -4956, 0, 0, 0, 0, -1792, -4876, 0, 0, 0, 0, -2679, -4876, 0, 0, 0, 0, -3053, -4116, 0, 0, 0, 0, -3217, -4117, 0, 0, 0, 0, -3209, -4879, 0, 0, 0, 0, -4217, -4886, 0, 0, 0, 0, -4223, -6724, 0, 0, 0, 0, -369, -6732, 0, 0, 0, 0, -368, -7424, 0, 0, 0, 0, -4513, -7442, 0, 0, 0, 0, -4510, -7076, 0, 0, 0, 0, -5341, -7077, 0, 0, 0, 0, -5344, -6830, 0, 0, 0, 0, -5337, -8115, 0, 0, 0, 0, 343, -8115, 0, 0, 0, 0, 344, -3258, 0, 0, 0, 0, -5338, -3253, 0, 0, 0, 0, -5340, -6831, 0, 0, 0, 0, -4504, -6824)
+}
+point_count = 39
+
+[node name="Level2" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6yelw")]
+position = Vector2(2228, 2378)
+
+[node name="XYCam" type="Camera2D" parent="."]
+script = ExtResource("2_6jcia")
+
+[node name="Terrain" type="StaticBody2D" parent="."]
+position = Vector2(3011, 6381)
+script = ExtResource("3_umrj4")
+
+[node name="Path" type="Path2D" parent="Terrain"]
+curve = SubResource("Curve2D_cbi1f")
+
+[node name="Texture" type="Line2D" parent="Terrain"]
+points = PackedVector2Array(4179, 1650)
+width = 15.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Collision" type="CollisionPolygon2D" parent="Terrain"]
+
+[node name="Door" parent="." instance=ExtResource("5_4gdej")]
+position = Vector2(-2943, -1123)
+
+[node name="Tips" type="Node" parent="."]
+
+[node name="Icons" type="Node" parent="Tips"]
+
+[node name="Arrow1" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(2591, 1744)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_l7xbg")
+
+[node name="Arrow2" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(2097, 1229)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_l7xbg")
+
+[node name="Arrow3" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(1754, 470)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_2hrcx")
+
+[node name="Arrow4" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(-517, 496)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_wgfbm")
+
+[node name="Arrow5" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(-498, 1255)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_biubl")
+
+[node name="Arrow6" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(1424, 1589)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_2hrcx")
+
+[node name="Arrow7" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(-476, 2223)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_l7xbg")
+
+[node name="Arrow8" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(-1258, 2154)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_l7xbg")
+
+[node name="Arrow9" type="Sprite2D" parent="Tips/Icons"]
+position = Vector2(-1338, 625)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_l7xbg")
+
+[node name="Text" type="Node" parent="Tips"]
+
+[node name="Easter Egg" type="Label" parent="Tips/Text"]
+offset_left = 1664.0
+offset_top = -715.0
+offset_right = 2248.0
+offset_bottom = -518.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_7fqno")
+theme_override_font_sizes/font_size = 60
+text = "No Easter Eggs Here..."
+
+[node name="Springs" type="Node2D" parent="."]
+
+[node name="Spring1" parent="Springs" instance=ExtResource("4_p4m8w")]
+position = Vector2(-1972, -3825)
+
+[node name="Spring2" parent="Springs" instance=ExtResource("4_p4m8w")]
+position = Vector2(5618, -3234)
+rotation = 1.5708
+
+[node name="Spring3" parent="Springs" instance=ExtResource("4_p4m8w")]
+position = Vector2(-4645, 6155)
+rotation = -1.5708
+
+[node name="Spring4" parent="Springs" instance=ExtResource("4_p4m8w")]
+position = Vector2(5021, 7818)
+rotation = -3.14159
+
+[node name="Spring5" parent="Springs" instance=ExtResource("4_p4m8w")]
+position = Vector2(3674, 7810)
+rotation = -3.14159
+
+[node name="Spring6" parent="Springs" instance=ExtResource("4_p4m8w")]
+position = Vector2(-5004, -3845)
+
+[node name="Spring7" parent="Springs" instance=ExtResource("4_p4m8w")]
+position = Vector2(-5792, -3837)
+
+[connection signal="body_entered" from="Springs/Spring1" to="Springs/Spring1" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring2" to="Springs/Spring2" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring3" to="Springs/Spring3" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring4" to="Springs/Spring4" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring5" to="Springs/Spring5" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring6" to="Springs/Spring6" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring7" to="Springs/Spring7" method="_on_body_entered"]

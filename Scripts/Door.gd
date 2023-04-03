@@ -4,7 +4,7 @@ var canPass = false
 
 signal door_interact
 
-var levels = ["Tutorial", "Level1"]
+var levels = ["Tutorial", "Level1", "Level2"]
 
 func interact():
 	Manager.levelModifier += 1

@@ -120,10 +120,10 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_qj0rt")
 
 [node name="Spring" parent="." instance=ExtResource("2_oma7u")]
-position = Vector2(-339, -252)
+position = Vector2(-339, -286)
 
 [node name="Spring2" parent="." instance=ExtResource("2_oma7u")]
-position = Vector2(9692, 147)
+position = Vector2(9692, 126)
 
 [node name="Door" parent="." instance=ExtResource("10_trvvs")]
 position = Vector2(13625, 4613)
