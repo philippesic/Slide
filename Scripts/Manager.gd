@@ -1,3 +1,4 @@
 extends Node
 
-var levelModifier = 0
+var levelModifier
+var playerReference

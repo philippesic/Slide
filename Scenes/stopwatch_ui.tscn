@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://brx3lpfcaxlfw"]
+
+[ext_resource type="FontFile" uid="uid://q7kjpchndcm6" path="res://Assets/Art/Roboto/Roboto-Light.ttf" id="1_jy4ah"]
+
+[node name="StopwatchLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_jy4ah")
+theme_override_font_sizes/font_size = 48
+text = "00:00:000"

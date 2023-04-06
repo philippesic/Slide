@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Slide"
-run/main_scene="res://Scenes/Level2.tscn"
+run/main_scene="res://Scenes/Level0.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://Assets/Art/icon.svg"
 
 [autoload]
 
 Manager="*res://Scripts/Manager.gd"
+Stopwatch="*res://Scripts/Stopwatch.gd"
 
 [display]
 

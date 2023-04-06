@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://g1ritd2oc1by"]
+[gd_scene load_steps=16 format=3 uid="uid://g1ritd2oc1by"]
 
 [ext_resource type="PackedScene" uid="uid://bm64i3gfiv718" path="res://Scenes/Player.tscn" id="1_6yelw"]
+[ext_resource type="Script" path="res://Scripts/Level2.gd" id="1_41qfm"]
 [ext_resource type="Script" path="res://Scripts/CAM_XY.gd" id="2_6jcia"]
 [ext_resource type="Script" path="res://Scripts/Terrain.gd" id="3_umrj4"]
 [ext_resource type="PackedScene" uid="uid://btdsqk7r6d7gb" path="res://Scenes/Spring.tscn" id="4_p4m8w"]
@@ -10,20 +11,32 @@
 [ext_resource type="Texture2D" uid="uid://drbvc86cdvwo3" path="res://Assets/Art/arrow-down-solid.svg" id="8_wgfbm"]
 [ext_resource type="Texture2D" uid="uid://pl7s06urgfxa" path="res://Assets/Art/arrow-right-solid.svg" id="9_biubl"]
 [ext_resource type="FontFile" uid="uid://q7kjpchndcm6" path="res://Assets/Art/Roboto/Roboto-Light.ttf" id="10_7fqno"]
+[ext_resource type="Script" path="res://Scripts/Manager.gd" id="11_f3dn5"]
+[ext_resource type="PackedScene" uid="uid://brx3lpfcaxlfw" path="res://Scenes/stopwatch_ui.tscn" id="13_g6eee"]
+[ext_resource type="Script" path="res://Scripts/stopwatch_ui.gd" id="14_avavu"]
 
 [sub_resource type="Curve2D" id="Curve2D_cbi1f"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -4504, -6825, 0, 0, 0, 0, -4496, -3906, 0, 0, 0, 0, -3988, -3903, 0, 0, 0, 0, -3986, -4624, 0, 0, 0, 0, -3780, -4623, 0, 0, 0, 0, -3781, -3912, 0, 0, 0, 0, -2689, -3911, 0, 0, 0, 0, -2692, -4101, 0, 0, 0, 0, -2373, -4686, 0, 0, 0, 0, -1342, -4673, 0, 0, 0, 0, -1343, -5299, 0, 0, 0, 0, -3277, -5301, 0, 0, 0, 0, -3279, -5610, 0, 0, 0, 0, -975, -5613, 0, 0, 0, 0, -962, -3896, 0, 0, 0, 0, -371, -3893, 0, 0, 0, 0, -371, -6379, 0, 0, 0, 0, -3720, -6385, 0, 0, 0, 0, -3710, -4971, 0, 0, 0, 0, -1792, -4956, 0, 0, 0, 0, -1792, -4876, 0, 0, 0, 0, -2679, -4876, 0, 0, 0, 0, -3053, -4116, 0, 0, 0, 0, -3217, -4117, 0, 0, 0, 0, -3209, -4879, 0, 0, 0, 0, -4217, -4886, 0, 0, 0, 0, -4223, -6724, 0, 0, 0, 0, -369, -6732, 0, 0, 0, 0, -368, -7424, 0, 0, 0, 0, -4513, -7442, 0, 0, 0, 0, -4510, -7076, 0, 0, 0, 0, -5341, -7077, 0, 0, 0, 0, -5344, -6830, 0, 0, 0, 0, -5337, -8115, 0, 0, 0, 0, 343, -8115, 0, 0, 0, 0, 344, -3258, 0, 0, 0, 0, -5338, -3253, 0, 0, 0, 0, -5340, -6831, 0, 0, 0, 0, -4504, -6824)
+"points": PackedVector2Array(0, 0, 0, 0, -4504, -6825, 0, 0, 0, 0, -4496, -3906, 0, 0, 0, 0, -3988, -3903, 0, 0, 0, 0, -3893, -4645, 0, 0, 0, 0, -3781, -3912, 0, 0, 0, 0, -2689, -3911, 0, 0, 0, 0, -2692, -4101, 0, 0, 0, 0, -2373, -4686, 0, 0, 0, 0, -1342, -4673, 0, 0, 0, 0, -1343, -5299, 0, 0, 0, 0, -3026, -5301, 0, 0, 0, 0, -3025, -5601, 0, 0, 0, 0, -975, -5613, 0, 0, 0, 0, -962, -3896, 0, 0, 0, 0, -371, -3893, 0, 0, 0, 0, -371, -6379, 0, 0, 0, 0, -3720, -6385, 0, 0, 0, 0, -3710, -4971, 0, 0, 0, 0, -2020, -4959, 0, 0, 0, 0, -2019, -4876, 0, 0, 0, 0, -2679, -4876, 0, 0, 0, 0, -3053, -4116, 0, 0, 0, 0, -3217, -4117, 0, 0, 0, 0, -3209, -4879, 0, 0, 0, 0, -4217, -4886, 0, 0, 0, 0, -4223, -6724, 0, 0, 0, 0, -369, -6732, 0, 0, 0, 0, -368, -7424, 0, 0, 0, 0, -4513, -7442, 0, 0, 0, 0, -4510, -7076, 0, 0, 0, 0, -5341, -7077, 0, 0, 0, 0, -5344, -6830, 0, 0, 0, 0, -5337, -8115, 0, 0, 0, 0, 343, -8115, 0, 0, 0, 0, 344, -3258, 0, 0, 0, 0, -5338, -3253, 0, 0, 0, 0, -5340, -6831, 0, 0, 0, 0, -4504, -6824)
 }
-point_count = 39
+point_count = 38
 
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_41qfm")
 
 [node name="Player" parent="." instance=ExtResource("1_6yelw")]
-position = Vector2(2228, 2378)
+position = Vector2(2248, 2403)
 
 [node name="XYCam" type="Camera2D" parent="."]
+position = Vector2(2248, 2128)
 script = ExtResource("2_6jcia")
+
+[node name="StopwatchLabel" parent="XYCam" instance=ExtResource("13_g6eee")]
+offset_left = -1145.0
+offset_top = -733.0
+offset_right = 1053.0
+offset_bottom = 631.0
+script = ExtResource("14_avavu")
 
 [node name="Terrain" type="StaticBody2D" parent="."]
 position = Vector2(3011, 6381)
@@ -77,7 +90,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_2hrcx")
 
 [node name="Arrow7" type="Sprite2D" parent="Tips/Icons"]
-position = Vector2(-476, 2223)
+position = Vector2(-576, 2224)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_l7xbg")
 
@@ -121,15 +134,19 @@ position = Vector2(5021, 7818)
 rotation = -3.14159
 
 [node name="Spring5" parent="Springs" instance=ExtResource("4_p4m8w")]
-position = Vector2(3674, 7810)
+position = Vector2(3590, 7810)
 rotation = -3.14159
 
 [node name="Spring6" parent="Springs" instance=ExtResource("4_p4m8w")]
-position = Vector2(-5004, -3845)
+position = Vector2(-5118, -3846)
 
 [node name="Spring7" parent="Springs" instance=ExtResource("4_p4m8w")]
 position = Vector2(-5792, -3837)
 
+[node name="Manager" type="Node" parent="."]
+script = ExtResource("11_f3dn5")
+
+[connection signal="parent_ready" from="." to="XYCam" method="_on_level_2_parent_ready"]
 [connection signal="body_entered" from="Springs/Spring1" to="Springs/Spring1" method="_on_body_entered"]
 [connection signal="body_entered" from="Springs/Spring2" to="Springs/Spring2" method="_on_body_entered"]
 [connection signal="body_entered" from="Springs/Spring3" to="Springs/Spring3" method="_on_body_entered"]
@@ -137,3 +154,5 @@ position = Vector2(-5792, -3837)
 [connection signal="body_entered" from="Springs/Spring5" to="Springs/Spring5" method="_on_body_entered"]
 [connection signal="body_entered" from="Springs/Spring6" to="Springs/Spring6" method="_on_body_entered"]
 [connection signal="body_entered" from="Springs/Spring7" to="Springs/Spring7" method="_on_body_entered"]
+
+[editable path="Springs/Spring1"]
