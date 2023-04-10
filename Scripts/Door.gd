@@ -5,6 +5,7 @@ var canPass = false
 signal door_interact
 
 func interact():
+	print("Level " + str(Manager.levelModifier) + ": " + str(Stopwatch.time_save))
 	Manager.levelModifier += 1
 	get_tree().change_scene_to_file("res://Scenes/Level" + str(Manager.levelModifier) + ".tscn")
 

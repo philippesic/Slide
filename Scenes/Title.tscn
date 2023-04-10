@@ -9,8 +9,8 @@ position = Vector2(979, 461)
 script = ExtResource("1_dcfop")
 
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(0, -68)
-scale = Vector2(0.2, 0.2)
+position = Vector2(-2.00002, 3.00002)
+scale = Vector2(0.959375, 0.859766)
 texture = ExtResource("1_ag1ft")
 
 [node name="Label" type="Label" parent="."]

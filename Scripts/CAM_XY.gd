@@ -14,3 +14,7 @@ func _on_level_1_parent_ready():
 
 func _on_level_2_parent_ready():
 	player = get_node(Manager.playerReference)
+
+
+func _on_level_3_parent_ready():
+	player = get_node(Manager.playerReference)

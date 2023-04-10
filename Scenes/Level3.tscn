@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://qlcgjnl1widu"]
+
+[ext_resource type="PackedScene" uid="uid://bm64i3gfiv718" path="res://Scenes/Player.tscn" id="1_bpnsg"]
+[ext_resource type="Script" path="res://Scripts/Level3.gd" id="1_ybe4n"]
+[ext_resource type="Script" path="res://Scripts/CAM_XY.gd" id="2_4w6v3"]
+[ext_resource type="PackedScene" uid="uid://brx3lpfcaxlfw" path="res://Scenes/stopwatch_ui.tscn" id="3_u0gst"]
+[ext_resource type="Script" path="res://Scripts/stopwatch_ui.gd" id="4_uxua4"]
+[ext_resource type="PackedScene" uid="uid://buve403tb3nv3" path="res://Scenes/door.tscn" id="5_s2g4d"]
+[ext_resource type="Script" path="res://Scripts/Terrain.gd" id="7_boanm"]
+[ext_resource type="PackedScene" uid="uid://btdsqk7r6d7gb" path="res://Scenes/Spring.tscn" id="8_qellr"]
+
+[sub_resource type="Curve2D" id="Curve2D_iowwo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 11, -387, 0, 0, 0, 0, 7, 1280, 0, 0, 0, 0, 2797, 1296, 0, 0, 0, 0, 2795, -401, 0, 0, 0, 0, 3324, -462, 0, 0, 0, 0, 3387, 4720, 0, 0, 0, 0, 4383, 4735, 0, 0, 0, 0, 4361, 1012, 0, 0, 0, 0, 5011, 1013, 0, 0, 0, 0, 5018, 1932, 0, 0, 0, 0, 8124, 1970, 0, 0, 0, 0, 8282, -4770, -2162.94, -6340.55, 2162.94, 6340.55, 13349, 4931, 3471.44, 10733.7, -3471.44, -10733.7, 15415, 4959, 0, 0, 0, 0, 8444, -7602, 0, 0, 0, 0, 5173, -7623, 0, 0, 0, 0, 5025, -1, 0, 0, 0, 0, 4293, 16, 0, 0, 0, 0, 4284, -7581, 0, 0, 0, 0, -20, -7567, 0, 0, 0, 0, -48, -1117, 0, 0, 0, 0, -2918, -1242, 0, 0, 0, 0, -3064, -11821, 0, 0, 0, 0, 21621, -11613, 0, 0, 0, 0, 21354, 11796, 0, 0, 0, 0, -3093, 11380, 0, 0, 0, 0, -2985, -544, 0, 0, 0, 0, 12, -391)
+}
+point_count = 28
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_ybe4n")
+
+[node name="Player" parent="." instance=ExtResource("1_bpnsg")]
+position = Vector2(2010, 1396)
+
+[node name="XYCam" type="Camera2D" parent="."]
+position = Vector2(2010, 1466)
+script = ExtResource("2_4w6v3")
+
+[node name="StopwatchLabel" parent="XYCam" instance=ExtResource("3_u0gst")]
+offset_left = -856.0
+offset_top = -2022.0
+offset_right = 1342.0
+offset_bottom = -658.0
+script = ExtResource("4_uxua4")
+
+[node name="Door" parent="." instance=ExtResource("5_s2g4d")]
+position = Vector2(12608, 2083)
+
+[node name="Terrain" type="StaticBody2D" parent="."]
+script = ExtResource("7_boanm")
+
+[node name="Path" type="Path2D" parent="Terrain"]
+curve = SubResource("Curve2D_iowwo")
+
+[node name="Texture" type="Line2D" parent="Terrain"]
+width = 15.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Collision" type="CollisionPolygon2D" parent="Terrain"]
+
+[node name="Spring1" parent="." instance=ExtResource("8_qellr")]
+position = Vector2(-1867, -5019)
+
+[node name="Spring2" parent="." instance=ExtResource("8_qellr")]
+position = Vector2(3504, -4348)
+
+[node name="Spring3" parent="." instance=ExtResource("8_qellr")]
+position = Vector2(1814, 6342)
+rotation = -1.5708
+
+[connection signal="parent_ready" from="." to="XYCam" method="_on_level_3_parent_ready"]
+[connection signal="interacted" from="Player" to="Door" method="_on_player_interacted"]
+[connection signal="area_entered" from="Door" to="Door" method="_on_area_entered"]
+[connection signal="area_exited" from="Door" to="Door" method="_on_area_exited"]
+[connection signal="body_entered" from="Spring1" to="Spring1" method="_on_body_entered"]
+[connection signal="body_entered" from="Spring2" to="Spring2" method="_on_body_entered"]
+[connection signal="body_entered" from="Spring3" to="Spring3" method="_on_body_entered"]

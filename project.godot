@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Slide"
-run/main_scene="res://Scenes/Level0.tscn"
+run/main_scene="res://Scenes/Level3.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://Assets/Art/icon.svg"
 
@@ -71,3 +71,4 @@ enter={
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.380392, 0.380392, 0.380392, 1)

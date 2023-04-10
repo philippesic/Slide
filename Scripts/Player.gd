@@ -23,7 +23,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-		
+	print(str(position.x) + ", " + str(position.y) )
 
 	if Input.is_action_just_pressed("reset"):
 		get_tree().change_scene_to_file(currentScene)

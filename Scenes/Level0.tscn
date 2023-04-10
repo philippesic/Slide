@@ -21,6 +21,8 @@ point_count = 37
 script = ExtResource("1_3s8nx")
 metadata/_edit_vertical_guides_ = [4607.0]
 
+[node name="Background" type="Sprite2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("2_i8ngk")]
 position = Vector2(977, 889)
 floor_max_angle = 1.309
