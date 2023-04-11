@@ -2,3 +2,5 @@
 .godot/
 
 Assets/Art/Sprite-0001.aseprite
+.DS_Store
+export_presets.cfg
