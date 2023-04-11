@@ -24,10 +24,10 @@ theme_override_fonts/font = ExtResource("2_vjptd")
 theme_override_font_sizes/font_size = 64
 
 [node name="Author" type="Label" parent="."]
-offset_left = 1394.0
-offset_top = 1409.0
-offset_right = 1897.0
-offset_bottom = 1614.0
+offset_left = 1173.0
+offset_top = 1229.0
+offset_right = 1676.0
+offset_bottom = 1434.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_vjptd")
 theme_override_font_sizes/font_size = 64

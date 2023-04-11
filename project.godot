@@ -70,5 +70,6 @@ enter={
 
 [rendering]
 
+renderer/rendering_method="mobile"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.380392, 0.380392, 0.380392, 1)

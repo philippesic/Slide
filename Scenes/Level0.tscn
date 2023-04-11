@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2lqgtqxncwsu"]
+[gd_scene load_steps=13 format=3 uid="uid://d2lqgtqxncwsu"]
 
 [ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="1_3s8nx"]
 [ext_resource type="PackedScene" uid="uid://bm64i3gfiv718" path="res://Scenes/Player.tscn" id="2_i8ngk"]
@@ -16,6 +16,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 427, 0, 0, 0, 0, 2, 1145, 0, 0, 0, 0, 2250, 1142, 0, 0, 0, 0, 2249, 1052, -57.4046, -6.81071, 57.4046, 6.81071, 2385, 1057, -349.561, -24.5168, 349.561, 24.5168, 2686, 1156, 0, 0, 0, 0, 3361, 1048, 0, 0, 0, 0, 3356, 1245, 0, 0, 0, 0, 3929, 1243, 0, 0, 0, 0, 3927, 805, 0, 0, 0, 0, 4247, 799, 0, 0, 0, 0, 4250, 1252, 0, 0, 0, 0, 4945, 1252, 0, 0, 0, 0, 4944, 787, -87.0385, 1.70664, 87.0385, -1.70664, 5335, 781, -386.053, -6.01642, 386.053, 6.01642, 5848, 1163, -13.6531, -29.5817, 13.6531, 29.5817, 6489, 888, 0, 0, 0, 0, 6497, 1923, 0, 0, 0, 0, 8099, 1917, 0, 0, 0, 0, 8090, 992, 0, 0, 0, 0, 10357, 976, 0, 0, 0, 0, 10357, 456, 0, 0, 0, 0, 10868, 456, 0, 0, 0, 0, 10868, -5, 0, 0, 0, 0, 4697, -5, 0, 0, 0, 0, 4703, 1047, 0, 0, 0, 0, 4471, 1049, 0, 0, 0, 0, 4467, -8, 0, 0, 0, 0, -6, -5, 0, 0, 0, 0, 0, 187, 0, 0, 0, 0, -921, 188, 0, 0, 0, 0, -921, -684, 0, 0, 0, 0, 12382, -685, 0, 0, 0, 0, 12381, 3126, 0, 0, 0, 0, -918, 3118, 0, 0, 0, 0, -917, 432, 0, 0, 0, 0, 0, 428)
 }
 point_count = 37
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sl33"]
+size = Vector2(31017, 1636)
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_3s8nx")
@@ -188,6 +191,14 @@ texture = ExtResource("7_w30p4")
 [node name="Door" parent="." instance=ExtResource("8_px2b8")]
 position = Vector2(9621, -404)
 
+[node name="DeathBox" type="Area2D" parent="."]
+position = Vector2(2800, 222)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox"]
+position = Vector2(258, 2140)
+shape = SubResource("RectangleShape2D_3sl33")
+
 [connection signal="interacted" from="Player" to="Door" method="_on_player_interacted"]
 [connection signal="area_entered" from="Door" to="Door" method="_on_area_entered"]
 [connection signal="area_exited" from="Door" to="Door" method="_on_area_exited"]
+[connection signal="area_entered" from="DeathBox" to="." method="_on_death_box_area_entered"]
