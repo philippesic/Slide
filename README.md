@@ -1,1 +1,3 @@
-### Slide - Philip Pesic's Experimental Dlab Game
+### Slide - Philip Pesic
+#### You can play Slide at:
+#### https://philip-pesic.itch.io/slide
