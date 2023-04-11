@@ -82,8 +82,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y5x3t"]
-radius = 40.0
-height = 194.286
+radius = 62.8571
+height = 225.714
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(583, 431)

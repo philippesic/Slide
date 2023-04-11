@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c76mj6v8u65hy" path="res://Assets/Art/Door.png" id="2_hywyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2mas"]
-size = Vector2(149, 218)
+size = Vector2(178, 240)
 
 [node name="Door" type="Area2D" groups=["Door"]]
 script = ExtResource("1_h2e6f")
@@ -15,5 +15,5 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_hywyx")
 
 [node name="Area" type="CollisionShape2D" parent="."]
-position = Vector2(1000.5, 576)
+position = Vector2(999, 578)
 shape = SubResource("RectangleShape2D_k2mas")

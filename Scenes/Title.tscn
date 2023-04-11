@@ -5,12 +5,12 @@
 [ext_resource type="FontFile" uid="uid://lvbh656qh6md" path="res://Assets/Art/Roboto/Roboto-Thin.ttf" id="2_oly7i"]
 
 [node name="Title" type="CharacterBody2D"]
-position = Vector2(979, 461)
+position = Vector2(1432, 721)
 script = ExtResource("1_dcfop")
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(-2.00002, 3.00002)
-scale = Vector2(0.959375, 0.859766)
+scale = Vector2(2, 1.794)
 texture = ExtResource("1_ag1ft")
 
 [node name="Label" type="Label" parent="."]
@@ -22,3 +22,4 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_oly7i")
 theme_override_font_sizes/font_size = 200
 text = "Press Enter to Play"
+metadata/_edit_use_anchors_ = true

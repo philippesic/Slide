@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://qlcgjnl1widu"]
+[gd_scene load_steps=14 format=3 uid="uid://qlcgjnl1widu"]
 
 [ext_resource type="PackedScene" uid="uid://bm64i3gfiv718" path="res://Scenes/Player.tscn" id="1_bpnsg"]
 [ext_resource type="Script" path="res://Scripts/Level3.gd" id="1_ybe4n"]
@@ -8,32 +8,39 @@
 [ext_resource type="PackedScene" uid="uid://buve403tb3nv3" path="res://Scenes/door.tscn" id="5_s2g4d"]
 [ext_resource type="Script" path="res://Scripts/Terrain.gd" id="7_boanm"]
 [ext_resource type="PackedScene" uid="uid://btdsqk7r6d7gb" path="res://Scenes/Spring.tscn" id="8_qellr"]
+[ext_resource type="FontFile" uid="uid://q7kjpchndcm6" path="res://Assets/Art/Roboto/Roboto-Light.ttf" id="9_gr0vh"]
+[ext_resource type="Texture2D" uid="uid://pl7s06urgfxa" path="res://Assets/Art/arrow-right-solid.svg" id="10_vrc6g"]
+[ext_resource type="Texture2D" uid="uid://cett0mgg1tub0" path="res://Assets/Art/arrow-up-solid.svg" id="11_f3rf5"]
 
 [sub_resource type="Curve2D" id="Curve2D_iowwo"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 11, -387, 0, 0, 0, 0, 7, 1280, 0, 0, 0, 0, 2797, 1296, 0, 0, 0, 0, 2795, -401, 0, 0, 0, 0, 3324, -462, 0, 0, 0, 0, 3387, 4720, 0, 0, 0, 0, 4383, 4735, 0, 0, 0, 0, 4361, 1012, 0, 0, 0, 0, 5011, 1013, 0, 0, 0, 0, 5018, 1932, 0, 0, 0, 0, 8124, 1970, 0, 0, 0, 0, 8282, -4770, -2162.94, -6340.55, 2162.94, 6340.55, 13349, 4931, 3471.44, 10733.7, -3471.44, -10733.7, 15415, 4959, 0, 0, 0, 0, 8444, -7602, 0, 0, 0, 0, 5173, -7623, 0, 0, 0, 0, 5025, -1, 0, 0, 0, 0, 4293, 16, 0, 0, 0, 0, 4284, -7581, 0, 0, 0, 0, -20, -7567, 0, 0, 0, 0, -48, -1117, 0, 0, 0, 0, -2918, -1242, 0, 0, 0, 0, -3064, -11821, 0, 0, 0, 0, 21621, -11613, 0, 0, 0, 0, 21354, 11796, 0, 0, 0, 0, -3093, 11380, 0, 0, 0, 0, -2985, -544, 0, 0, 0, 0, 12, -391)
+"points": PackedVector2Array(0, 0, 0, 0, 11, -387, 0, 0, 0, 0, 9, 1302, 0, 0, 0, 0, 2797, 1296, 0, 0, 0, 0, 2804, -200, 0, 0, 0, 0, 3355, -206, 0, 0, 0, 0, 3387, 4720, 0, 0, 0, 0, 4383, 4735, 0, 0, 0, 0, 4361, 1012, 0, 0, 0, 0, 5011, 1013, 0, 0, 0, 0, 5014, 1955, 0, 0, 0, 0, 8124, 1970, 0, 0, 0, 0, 8092, -4690, -1194.25, -6235.83, 1194.25, 6235.83, 13349, 4931, 3471.44, 10733.7, -3471.44, -10733.7, 15415, 4959, 0, 0, 0, 0, 8444, -7602, 0, 0, 0, 0, 5020, -7610, 0, 0, 0, 0, 5027, -1551, 0, 0, 0, 0, 5177, -1550, 0, 0, 0, 0, 5177, -1514, 0, 0, 0, 0, 5033, -1515, 0, 0, 0, 0, 5025, -1, 0, 0, 0, 0, 4285, 0, 0, 0, 0, 0, 4284, -7581, 0, 0, 0, 0, -20, -7567, 0, 0, 0, 0, -48, -1117, 0, 0, 0, 0, -2952, -1125, 0, 0, 0, 0, -3064, -11821, 0, 0, 0, 0, 21621, -11613, 0, 0, 0, 0, 21354, 11796, 0, 0, 0, 0, -3093, 11380, 0, 0, 0, 0, -3017, -440, 0, 0, 0, 0, 12, -391)
 }
-point_count = 28
+point_count = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pywwt"]
+size = Vector2(31017, 1636)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_ybe4n")
 
 [node name="Player" parent="." instance=ExtResource("1_bpnsg")]
-position = Vector2(2010, 1396)
+position = Vector2(1508, 1217)
 
 [node name="XYCam" type="Camera2D" parent="."]
-position = Vector2(2010, 1466)
+position = Vector2(1508, 971)
 script = ExtResource("2_4w6v3")
 
 [node name="StopwatchLabel" parent="XYCam" instance=ExtResource("3_u0gst")]
-offset_left = -856.0
-offset_top = -2022.0
-offset_right = 1342.0
-offset_bottom = -658.0
+offset_left = -1134.0
+offset_top = -722.0
+offset_right = 1064.0
+offset_bottom = 642.0
 script = ExtResource("4_uxua4")
 
 [node name="Door" parent="." instance=ExtResource("5_s2g4d")]
-position = Vector2(12608, 2083)
+position = Vector2(9109, -349)
+scale = Vector2(4, 4)
 
 [node name="Terrain" type="StaticBody2D" parent="."]
 script = ExtResource("7_boanm")
@@ -47,20 +54,148 @@ default_color = Color(0, 0, 0, 1)
 
 [node name="Collision" type="CollisionPolygon2D" parent="Terrain"]
 
-[node name="Spring1" parent="." instance=ExtResource("8_qellr")]
-position = Vector2(-1867, -5019)
+[node name="Springs" type="Node" parent="."]
 
-[node name="Spring2" parent="." instance=ExtResource("8_qellr")]
+[node name="Spring1" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(-1824, -5019)
+
+[node name="Spring2" parent="Springs" instance=ExtResource("8_qellr")]
 position = Vector2(3504, -4348)
 
-[node name="Spring3" parent="." instance=ExtResource("8_qellr")]
-position = Vector2(1814, 6342)
+[node name="Spring3" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(1802, 5530)
 rotation = -1.5708
+
+[node name="Spring4" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(2898, -5063)
+
+[node name="Spring5" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(1154, 4968)
+rotation = -1.5708
+
+[node name="Spring6" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(2122, -5510)
+
+[node name="Spring7" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(364, 4449)
+rotation = -1.5708
+
+[node name="Spring8" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(1411, -5916)
+
+[node name="Spring9" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(537, -6325)
+
+[node name="Spring11" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(1416, -7886)
+
+[node name="Spring13" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(-1095, -14426)
+scale = Vector2(2, 2)
+
+[node name="Spring14" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(3504, -8925)
+
+[node name="Spring15" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(3504, -9530)
+
+[node name="Spring16" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(3504, -10152)
+
+[node name="Spring17" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(3504, -10812)
+
+[node name="Spring10" parent="Springs" instance=ExtResource("8_qellr")]
+position = Vector2(-331, 4079)
+rotation = -1.5708
+
+[node name="Tips" type="Node" parent="."]
+
+[node name="Text" type="Node" parent="Tips"]
+
+[node name="Warn" type="Label" parent="Tips/Text"]
+offset_left = 8243.0
+offset_top = -5712.0
+offset_right = 9484.0
+offset_bottom = -5558.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_gr0vh")
+theme_override_font_sizes/font_size = 128
+text = "Don't miss the doors..."
+
+[node name="Arrows" type="Node" parent="Tips"]
+
+[node name="Tip1" type="Sprite2D" parent="Tips/Arrows"]
+position = Vector2(1508, 971)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_vrc6g")
+
+[node name="Tip2" type="Sprite2D" parent="Tips/Arrows"]
+position = Vector2(2717, 342)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_f3rf5")
+
+[node name="Tip3" type="Sprite2D" parent="Tips/Arrows"]
+position = Vector2(3785, -180)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_vrc6g")
+
+[node name="Tip4" type="Sprite2D" parent="Tips/Arrows"]
+position = Vector2(6224, 1700)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_vrc6g")
+
+[node name="Tip5" type="Sprite2D" parent="Tips/Arrows"]
+position = Vector2(5114, -494)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_f3rf5")
+
+[node name="Tip6" type="Sprite2D" parent="Tips/Arrows"]
+position = Vector2(5450, -1861)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_vrc6g")
+
+[node name="Tip7" type="Sprite2D" parent="Tips/Arrows"]
+position = Vector2(6724, -2119)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("10_vrc6g")
+
+[node name="Tip8" type="Sprite2D" parent="Tips/Arrows"]
+position = Vector2(8767, -5332)
+rotation = 0.523599
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_vrc6g")
+
+[node name="Tip9" type="Sprite2D" parent="Tips/Arrows"]
+position = Vector2(12304, -42)
+rotation = 1.22173
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_vrc6g")
+
+[node name="DeathBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox"]
+position = Vector2(-29.5, 4572)
+shape = SubResource("RectangleShape2D_pywwt")
 
 [connection signal="parent_ready" from="." to="XYCam" method="_on_level_3_parent_ready"]
 [connection signal="interacted" from="Player" to="Door" method="_on_player_interacted"]
 [connection signal="area_entered" from="Door" to="Door" method="_on_area_entered"]
 [connection signal="area_exited" from="Door" to="Door" method="_on_area_exited"]
-[connection signal="body_entered" from="Spring1" to="Spring1" method="_on_body_entered"]
-[connection signal="body_entered" from="Spring2" to="Spring2" method="_on_body_entered"]
-[connection signal="body_entered" from="Spring3" to="Spring3" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring1" to="Springs/Spring1" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring2" to="Springs/Spring2" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring3" to="Springs/Spring3" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring4" to="Springs/Spring4" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring5" to="Springs/Spring5" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring6" to="Springs/Spring6" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring7" to="Springs/Spring7" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring8" to="Springs/Spring8" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring9" to="Springs/Spring9" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring11" to="Springs/Spring11" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring13" to="Springs/Spring13" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring14" to="Springs/Spring14" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring15" to="Springs/Spring15" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring16" to="Springs/Spring16" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring17" to="Springs/Spring17" method="_on_body_entered"]
+[connection signal="body_entered" from="Springs/Spring10" to="Springs/Spring10" method="_on_body_entered"]
+[connection signal="area_entered" from="DeathBox" to="." method="_on_death_box_area_entered"]
